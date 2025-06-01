@@ -57,57 +57,6 @@ export class GameManager extends Component {
         this.audiosource = this.node.getComponent(AudioSource);
 
         const allNodes = this.totalNodes
-
-
-
-        // allNodes[12].setSiblingIndex(allNodes[12].parent.children.length - 2)
-
-        // this.scheduleOnce(() => {
-        //     tween(allNodes[12]).to(0.8, { position: allNodes[13].position }).call(() => {
-        //         // this.audiosource.playOneShot(this.audioclips[1], 6);
-        //         // allNodes[13].active = false;
-        //         // allNodes[12].getComponent(Sprite).spriteFrame = this.BnWImgs.getSpriteFrame(allNodes[12].name)
-
-        //         // this.ParticleNode.setPosition(allNodes[13].position)
-        //         // this.ParticleNode.getComponent(ParticleSystem2D).enabled = true;
-        //         // this.ParticleNode.getComponent(ParticleSystem2D).resetSystem()
-        //         // this.scaleEffect()
-        //         tween(allNodes[12].children[0].getComponent(UIOpacity)).to(0.2, { opacity: 0 }).start();
-
-        //     })
-        //         .delay(0.5)
-        //         .call(() => {
-        //             //     allNodes[12].children[0].getComponent(UIOpacity).opacity = 255
-        //             //     this.ParticleNode.getComponent(ParticleSystem2D).enabled = false;
-        //             // })
-        //             // .to(0.8, { position: allNodes[18].position }).call(() => {
-        //             //     this.audiosource.playOneShot(this.audioclips[1], 6);
-        //             //     allNodes[18].active = false;
-        //             //     allNodes[12].getComponent(Sprite).spriteFrame = this.ColorImgs.getSpriteFrame(allNodes[12].name)
-        //             //     this.ParticleNode.setPosition(allNodes[18].position)
-        //             //     this.ParticleNode.getComponent(ParticleSystem2D).enabled = true;
-        //             //     this.ParticleNode.getComponent(ParticleSystem2D).resetSystem()
-
-        //             //     this.scaleEffect()
-        //             //     tween(allNodes[12].children[0].getComponent(UIOpacity)).to(0.2, { opacity: 0 }).start();
-        //             // })
-        //             // .delay(0.5)
-        //             // .call(() => {
-        //             //     allNodes[12].children[0].getComponent(UIOpacity).opacity = 255
-        //             //     this.ParticleNode.getComponent(ParticleSystem2D).enabled = false;
-        //             // })
-        //             // .to(0.8, { position: allNodes[26].position }).delay(0.2).call(() => {
-        //             //     this.audiosource.playOneShot(this.audioclips[2], 6);
-        //             //     allNodes[26].children[0].active = true;
-        //             //     allNodes[12].active = false;
-
-        //             //     this.addTouch();
-        //             //     this.scaleEffect()
-        //             //     this.DragText.active = false;
-
-        //         })
-        //         .start();
-        // }, 1)
         this.addTouch();
         this.handTween(this.totalNodes[12].position, this.totalNodes[13].position);
 
@@ -134,13 +83,26 @@ export class GameManager extends Component {
             .repeatForever(
                 tween()
                     .call(() => {
-                        this.Hand.getComponent(UIOpacity).opacity = 255;
+                        this.Hand.children[0].active = true;
+                        this.Hand.children[1].active = false;
                     })
                     .to(1, { position: finlaPnt }, { easing: 'sineInOut' })
                     .call(() => {
-                        this.Hand.getComponent(UIOpacity).opacity = 0;
+                        this.Hand.children[0].active = false;
+                        this.Hand.children[1].active = true;
+                    })
+                    .delay(0.2)
+                    .call(() => {
+                        this.Hand.children[0].active = true;
+                        this.Hand.children[1].active = false;
                     })
                     .to(1, { position: initPnt }, { easing: 'sineInOut' })
+                    
+                     .call(() => {
+                        this.Hand.children[0].active = false;
+                        this.Hand.children[1].active = true;
+                    }).delay(0.2)
+
             )
             .start();
     }
@@ -212,14 +174,14 @@ export class GameManager extends Component {
 
                     let name = target.name.split("_");
                     if (name.length === 3) {
-                        if(this.ansCnt<=0)
+                        if (this.ansCnt <= 0)
                             this.handTween(this.totalNodes[18].position, this.totalNodes[26].position);
                         target.setScale(0.6, 0.6, 0.6)
                         target.name = name[0] + "_" + name[1];
                         target.getComponent(Sprite).spriteFrame = this.ColorImgs.getSpriteFrame(target.name);
                         this.SnappedNodes.push(target.name)
                     } else {
-                        if(this.ansCnt<=0)
+                        if (this.ansCnt <= 0)
                             this.handTween(this.totalNodes[13].position, this.totalNodes[18].position);
 
                         target.getComponent(Sprite).spriteFrame = this.BnWImgs.getSpriteFrame(target.name);
