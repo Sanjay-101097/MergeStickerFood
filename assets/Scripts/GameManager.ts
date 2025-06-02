@@ -32,6 +32,9 @@ export class GameManager extends Component {
     @property(Node)
     ParticleNode: Node = null;
 
+    @property(AudioSource)
+    BG: AudioSource = null;
+
     @property(Node)
     CTA: Node = null;
 
@@ -91,7 +94,7 @@ export class GameManager extends Component {
                         this.Hand.children[0].active = false;
                         this.Hand.children[1].active = true;
                     })
-                    .delay(0.2)
+                    .delay(0.6)
                     .call(() => {
                         this.Hand.children[0].active = true;
                         this.Hand.children[1].active = false;
@@ -101,7 +104,7 @@ export class GameManager extends Component {
                      .call(() => {
                         this.Hand.children[0].active = false;
                         this.Hand.children[1].active = true;
-                    }).delay(0.2)
+                    }).delay(0.6)
 
             )
             .start();
@@ -248,6 +251,9 @@ export class GameManager extends Component {
     }
 
     OnStartButtonClick() {
+
+        this.BG.enabled = false;
+        this.node.getComponent(AudioSource).enabled = false;
 
         if (sys.os === sys.OS.ANDROID) {
             window.open("https://play.google.com/store/apps/details?id=com.game.goolny.stickers&hl=en-US&gl=US", "MergeSticker");
