@@ -1,4 +1,4 @@
-import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, Prefab, random, randomRangeInt, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v3, Vec3 } from 'cc';
+import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, PolygonCollider2D, Prefab, random, randomRangeInt, RigidBody2D, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v3, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -131,6 +131,8 @@ export class GameManager extends Component {
         this.draggingNode.setScale(1, 1, 1)
         const touchPos = event.getUILocation();
         const worldZero = this.draggingNode.getComponent(UITransform).convertToWorldSpaceAR(Vec3.ZERO);
+        this.draggingNode.getComponent(PolygonCollider2D).enabled = false;
+        this.draggingNode.getComponent(RigidBody2D).enabled = false;
 
         this.offset.set(touchPos.x - worldZero.x, touchPos.y - worldZero.y, 0);
         this.draggingNode.setSiblingIndex(this.draggingNode.parent.children.length - 2)
@@ -201,7 +203,7 @@ export class GameManager extends Component {
                     let dupNode = instantiate(this.totalNodes[this.DupIdx]);
                     if (original) {
                         dupNode.parent = this.draggingNode.parent;
-                        dupNode.setPosition(original);
+                        dupNode.setPosition(original.x,233);
                         // this.draggingNode.name = "dup" + random().toString();
                         dupNode.setSiblingIndex(0)
                         dupNode.name = this.totalNodes[this.DupIdx].name;
@@ -229,7 +231,7 @@ export class GameManager extends Component {
                     let dupNode = instantiate(this.totalNodes[this.DupIdx]);
                     if (original) {
                         dupNode.parent = this.draggingNode.parent;
-                        dupNode.setPosition(original);
+                        dupNode.setPosition(original.x,233);
                         // this.draggingNode.name = "dup" + random().toString();
                         dupNode.setSiblingIndex(0)
                         dupNode.name = this.totalNodes[this.DupIdx].name;
@@ -250,9 +252,11 @@ export class GameManager extends Component {
         if (!snapped) {
             const original = this.originalPositions.get(this.draggingNode);
             if (original) {
-                this.draggingNode.setPosition(original);
+                this.draggingNode.setPosition(original.x,233);
                 this.audiosource.playOneShot(this.audioclips[0], 0.6);
             }
+                    this.draggingNode.getComponent(PolygonCollider2D).enabled = true;
+        this.draggingNode.getComponent(RigidBody2D).enabled = true;
         }
 
         this.draggingNode = null;
