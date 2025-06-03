@@ -1,4 +1,4 @@
-import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, Prefab, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v3, Vec3 } from 'cc';
+import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, Prefab, random, randomRangeInt, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v3, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -100,8 +100,8 @@ export class GameManager extends Component {
                         this.Hand.children[1].active = false;
                     })
                     .to(1, { position: initPnt }, { easing: 'sineInOut' })
-                    
-                     .call(() => {
+
+                    .call(() => {
                         this.Hand.children[0].active = false;
                         this.Hand.children[1].active = true;
                     }).delay(0.6)
@@ -150,6 +150,7 @@ export class GameManager extends Component {
     }
 
     SnappedNodes: string[] = [];
+    DupIdx = 0;
 
     onTouchEnd(event: EventTouch) {
         if (!this.draggingNode) return;
@@ -195,16 +196,51 @@ export class GameManager extends Component {
                     this.scaleEffect();
 
                     this.draggingNode.active = false;
-                    this.audiosource.playOneShot(this.audioclips[1], 6);
+                    const original = this.originalPositions.get(this.draggingNode);
+
+                    let dupNode = instantiate(this.totalNodes[this.DupIdx]);
+                    if (original) {
+                        dupNode.parent = this.draggingNode.parent;
+                        dupNode.setPosition(original);
+                        // this.draggingNode.name = "dup" + random().toString();
+                        dupNode.setSiblingIndex(0)
+                        dupNode.name = this.totalNodes[this.DupIdx].name;
+                        dupNode.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
+                        dupNode.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+                        dupNode.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
+                        dupNode.on(Input.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+                        this.originalPositions.set(dupNode, dupNode.position.clone());
+                        this.totalNodes.push(dupNode)
+                    }
+                    this.audiosource.playOneShot(this.audioclips[1], 0.6);
                     snapped = true;
+                    this.DupIdx += 1;
 
                 } else if (target.children?.length && this.SnappedNodes.indexOf(target.name) !== -1) {
                     target.children[0].active = true;
                     this.draggingNode.active = false;
-                    this.audiosource.playOneShot(this.audioclips[2], 6);
+                    this.audiosource.playOneShot(this.audioclips[2], 0.6);
                     this.scaleEffect();
                     this.ansCnt += 1;
                     snapped = true;
+
+                    const original = this.originalPositions.get(this.draggingNode);
+
+                    let dupNode = instantiate(this.totalNodes[this.DupIdx]);
+                    if (original) {
+                        dupNode.parent = this.draggingNode.parent;
+                        dupNode.setPosition(original);
+                        // this.draggingNode.name = "dup" + random().toString();
+                        dupNode.setSiblingIndex(0)
+                        dupNode.name = this.totalNodes[this.DupIdx].name;
+                        dupNode.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
+                        dupNode.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+                        dupNode.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
+                        dupNode.on(Input.EventType.TOUCH_CANCEL, this.onTouchEnd, this);
+                        this.originalPositions.set(dupNode, dupNode.position.clone());
+                        this.totalNodes.push(dupNode)
+                        this.DupIdx += 1;
+                    }
                 }
 
                 break;
@@ -267,6 +303,7 @@ export class GameManager extends Component {
     }
 
     timer = 0;
+    dt1 = 0
 
 
     protected update(dt: number): void {
@@ -274,8 +311,12 @@ export class GameManager extends Component {
         if (this.ansCnt >= 1) {
             this.timer += dt;
 
-            if (this.timer >= 20 || this.ansCnt == 3) {
-                this.CTA.active = true;
+            if (this.timer >= 22 || this.ansCnt == 3) {
+                this.dt1 += dt;
+                if (this.dt1 >= 2) {
+                    this.CTA.active = true;
+                }
+
             }
         }
 
