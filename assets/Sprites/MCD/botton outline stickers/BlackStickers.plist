@@ -7,7 +7,7 @@
       <key>mcd_CPC.png</key>
       <dict>
         <key>frame</key>
-        <string>{{0,0},{145,136}}</string>
+        <string>{{2,2},{145,136}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -20,7 +20,7 @@
       <key>mcd_M.png</key>
       <dict>
         <key>frame</key>
-        <string>{{145,0},{134,150}}</string>
+        <string>{{151,2},{134,150}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -33,7 +33,7 @@
       <key>mcd_CD.png</key>
       <dict>
         <key>frame</key>
-        <string>{{0,136},{96,119}}</string>
+        <string>{{2,142},{96,119}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -46,7 +46,7 @@
       <key>mcd_BR.png</key>
       <dict>
         <key>frame</key>
-        <string>{{96,150},{107,88}}</string>
+        <string>{{102,156},{107,88}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -59,7 +59,7 @@
       <key>mcd_ICE.png</key>
       <dict>
         <key>frame</key>
-        <string>{{203,150},{62,116}}</string>
+        <string>{{213,156},{62,116}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -72,7 +72,7 @@
       <key>mcd_FF.png</key>
       <dict>
         <key>frame</key>
-        <string>{{0,255},{80,101}}</string>
+        <string>{{2,265},{80,101}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -85,7 +85,7 @@
       <key>mcd_PIE.png</key>
       <dict>
         <key>frame</key>
-        <string>{{80,255},{76,98}}</string>
+        <string>{{86,265},{76,98}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -98,7 +98,7 @@
       <key>mcd_CR.png</key>
       <dict>
         <key>frame</key>
-        <string>{{156,266},{102,56}}</string>
+        <string>{{166,276},{102,56}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
@@ -120,7 +120,7 @@
       <key>realTextureFileName</key>
       <string>BlackStickers.png</string>
       <key>size</key>
-      <string>{279,356}</string>
+      <string>{287,368}</string>
       <key>textureFileName</key>
       <string>BlackStickers</string>
     </dict>

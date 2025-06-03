@@ -2,14 +2,14 @@
   "ver": "1.0.8",
   "importer": "sprite-atlas",
   "imported": true,
-  "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+  "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
   "files": [
     ".json"
   ],
   "subMetas": {
     "18210": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@18210",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@18210",
       "displayName": "",
       "id": "18210",
       "name": "mcd_BR",
@@ -18,8 +18,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 96,
-        "trimY": 150,
+        "trimX": 102,
+        "trimY": 156,
         "width": 107,
         "height": 88,
         "rawWidth": 107,
@@ -42,8 +42,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -55,7 +55,7 @@
     },
     "24911": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@24911",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@24911",
       "displayName": "",
       "id": "24911",
       "name": "mcd_CR",
@@ -64,8 +64,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 156,
-        "trimY": 266,
+        "trimX": 166,
+        "trimY": 276,
         "width": 102,
         "height": 56,
         "rawWidth": 102,
@@ -88,8 +88,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -101,7 +101,7 @@
     },
     "43be4": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@43be4",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@43be4",
       "displayName": "",
       "id": "43be4",
       "name": "mcd_CPC",
@@ -110,8 +110,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 0,
+        "trimX": 2,
+        "trimY": 2,
         "width": 145,
         "height": 136,
         "rawWidth": 145,
@@ -134,8 +134,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -147,7 +147,7 @@
     },
     "3f09a": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@3f09a",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@3f09a",
       "displayName": "",
       "id": "3f09a",
       "name": "mcd_M",
@@ -156,8 +156,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 145,
-        "trimY": 0,
+        "trimX": 151,
+        "trimY": 2,
         "width": 134,
         "height": 150,
         "rawWidth": 134,
@@ -180,8 +180,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -193,7 +193,7 @@
     },
     "ae246": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@ae246",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@ae246",
       "displayName": "",
       "id": "ae246",
       "name": "mcd_CD",
@@ -202,8 +202,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 136,
+        "trimX": 2,
+        "trimY": 142,
         "width": 96,
         "height": 119,
         "rawWidth": 96,
@@ -226,8 +226,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -239,7 +239,7 @@
     },
     "b101c": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@b101c",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@b101c",
       "displayName": "",
       "id": "b101c",
       "name": "mcd_ICE",
@@ -248,8 +248,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 203,
-        "trimY": 150,
+        "trimX": 213,
+        "trimY": 156,
         "width": 62,
         "height": 116,
         "rawWidth": 62,
@@ -272,8 +272,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -285,7 +285,7 @@
     },
     "7d11d": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@7d11d",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@7d11d",
       "displayName": "",
       "id": "7d11d",
       "name": "mcd_FF",
@@ -294,8 +294,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 0,
-        "trimY": 255,
+        "trimX": 2,
+        "trimY": 265,
         "width": 80,
         "height": 101,
         "rawWidth": 80,
@@ -318,8 +318,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -331,7 +331,7 @@
     },
     "78f8b": {
       "importer": "sprite-frame",
-      "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe@78f8b",
+      "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097@78f8b",
       "displayName": "",
       "id": "78f8b",
       "name": "mcd_PIE",
@@ -340,8 +340,8 @@
         "rotated": false,
         "offsetX": 0,
         "offsetY": 0,
-        "trimX": 80,
-        "trimY": 255,
+        "trimX": 86,
+        "trimY": 265,
         "width": 76,
         "height": 98,
         "rawWidth": 76,
@@ -364,8 +364,8 @@
           "maxPos": []
         },
         "isUuid": true,
-        "imageUuidOrDatabaseUri": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a",
-        "atlasUuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
+        "imageUuidOrDatabaseUri": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a",
+        "atlasUuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
         "trimType": "auto"
       },
       "ver": "1.0.12",
@@ -379,7 +379,7 @@
   "userData": {
     "atlasTextureName": "BlackStickers.png",
     "format": 2,
-    "uuid": "c0f7660c-e2d9-45ef-bfa2-dc83ae7362fe",
-    "textureUuid": "86e572b0-a970-4474-90cc-50537fe64e8b@6c48a"
+    "uuid": "b7ed0563-2a17-4c01-94be-3417e9445097",
+    "textureUuid": "2139b9ee-2a3e-4cfc-bd88-57d401858778@6c48a"
   }
 }
