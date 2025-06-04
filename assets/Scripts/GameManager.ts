@@ -1,4 +1,5 @@
-import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, PolygonCollider2D, Prefab, random, randomRangeInt, RigidBody2D, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v3, Vec3 } from 'cc';
+import { _decorator, AudioClip, AudioSource, Component, EventTouch, Input, instantiate, Node, ParticleSystem2D, PolygonCollider2D, Prefab, random, randomRangeInt, RigidBody2D, Sprite, SpriteAtlas, SpriteFrame, sys, Tween, tween, UIOpacity, UITransform, v2, v3, Vec2, Vec3 } from 'cc';
+import { super_html_playable } from './super_html_playable';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameManager')
@@ -47,6 +48,8 @@ export class GameManager extends Component {
     @property(AudioClip)
     audioclips: AudioClip[] = [];
 
+    super_html_playable: super_html_playable = new super_html_playable();
+
     private draggingNode: Node | null = null;
     private originalPositions: Map<Node, Vec3> = new Map();
     private offset: Vec3 = new Vec3();
@@ -56,14 +59,29 @@ export class GameManager extends Component {
 
     ansCnt = 0;
 
+    ClrNodeCtnSize: object = { "mcd_M": v2(269, 335), "mcd_FF": v2(212, 294), "mcd_CD": v2(512, 512) }
+    ClrNodeCtnSizeB: object = { "mcd_M": v2(134, 150), "mcd_FF": v2(80, 106), "mcd_CD": v2(65, 129) }
+
+     public Downnload(): void {
+        this.super.download();
+    }
+
     start() {
         this.audiosource = this.node.getComponent(AudioSource);
 
         const allNodes = this.totalNodes
         this.addTouch();
-        this.handTween(this.totalNodes[12].position, this.totalNodes[13].position);
+        this.scheduleOnce(() => {
+
+            this.handTween(this.totalNodes[this.handpos[this.handId][0]].position, this.totalNodes[this.handpos[this.handId][1]].position);
+        }, 1.4)
+
 
     }
+
+    handId = 0;
+
+    handpos: number[][] = [[12, 13], [13, 18], [18, 26]]
 
     handTween(initPnt, finlaPnt) {
 
@@ -128,7 +146,11 @@ export class GameManager extends Component {
 
     onTouchStart(event: EventTouch) {
         this.draggingNode = event.target as Node;
-        this.draggingNode.setScale(1, 1, 1)
+        // this.draggingNode.setScale(1, 1, 1)
+        // if (this.draggingNode.name == "mcd_M") {
+        //     this.draggingNode.setScale(0.8, 0.8, 0.8)
+        // }
+        this.draggingNode.setRotationFromEuler(0, 0, 0)
         const touchPos = event.getUILocation();
         const worldZero = this.draggingNode.getComponent(UITransform).convertToWorldSpaceAR(Vec3.ZERO);
         this.draggingNode.getComponent(PolygonCollider2D).enabled = false;
@@ -164,33 +186,57 @@ export class GameManager extends Component {
             if (dist < 50 && this.draggingNode != target && this.draggingNode.name === target.name) {
                 this.draggingNode.setPosition(target.position);
                 if (!target.children?.length && this.SnappedNodes.indexOf(target.name) == -1) {
+                    if (target.name == "mcd_BR"||target.name == "mcd_BR_B") {
+                        this.handId += 1;
+                    }
                     this.ParticleNode.setPosition(target.position)
                     this.ParticleNode.getComponent(ParticleSystem2D).enabled = true;
                     this.ParticleNode.getComponent(ParticleSystem2D).resetSystem()
+                    let name = target.name.split("_");
                     tween(target)
                         .to(0.2, { scale: new Vec3(1.1, 1.1, 1.1) }, { easing: "quadIn" })
-                        .to(0.2, { scale: new Vec3(1, 1, 1) }, { easing: "quadIn" })
+                        .to(0.2, { scale: new Vec3(0.8, 0.8, 0.8) }, { easing: "quadIn" })
                         .call(() => {
                             this.ParticleNode.getComponent(ParticleSystem2D).enabled = false;
-                            if (target.name.split("_").length === 2) {
-                                target.setScale(0.6, 0.6, 0.6)
+                            if (name.length === 2) {
+                                target.setScale(1.3, 1.3, 1.3)
+
                             }
                         })
                         .start();
 
-                    let name = target.name.split("_");
+
                     if (name.length === 3) {
-                        if (this.ansCnt <= 0)
-                            this.handTween(this.totalNodes[18].position, this.totalNodes[26].position);
-                        target.setScale(0.6, 0.6, 0.6)
+                        if (this.ansCnt <= 0) {
+                            this.handTween(this.totalNodes[this.handpos[this.handId][0]].position, this.totalNodes[this.handpos[this.handId][1]].position);
+                        }
+
+                        // target.setScale(0.8, 0.8, 0.8)
+
                         target.name = name[0] + "_" + name[1];
+
                         target.getComponent(Sprite).spriteFrame = this.ColorImgs.getSpriteFrame(target.name);
+                        if (target.name == "mcd_M") {
+                            target.getComponent(UITransform).setContentSize(134, 150)
+                        }
+                        if (target.name == "mcd_FF") {
+                            target.getComponent(UITransform).setContentSize(80, 106)
+
+                        }
+                        if (target.name == "mcd_CD") {
+                            target.getComponent(UITransform).setContentSize(65, 129)
+
+                        }
                         this.SnappedNodes.push(target.name)
+
                     } else {
-                        if (this.ansCnt <= 0)
-                            this.handTween(this.totalNodes[13].position, this.totalNodes[18].position);
+                        if (this.ansCnt <= 0) {
+                            this.handTween(this.totalNodes[this.handpos[this.handId][0]].position, this.totalNodes[this.handpos[this.handId][1]].position);
+                        }
+
 
                         target.getComponent(Sprite).spriteFrame = this.BnWImgs.getSpriteFrame(target.name);
+                        target.setScale(1.3, 1.3, 1.3)
                         target.name += "_B"
                     }
 
@@ -203,7 +249,7 @@ export class GameManager extends Component {
                     let dupNode = instantiate(this.totalNodes[this.DupIdx]);
                     if (original) {
                         dupNode.parent = this.draggingNode.parent;
-                        dupNode.setPosition(original.x,233);
+                        dupNode.setPosition(original.x, 253);
                         // this.draggingNode.name = "dup" + random().toString();
                         dupNode.setSiblingIndex(0)
                         dupNode.name = this.totalNodes[this.DupIdx].name;
@@ -231,7 +277,7 @@ export class GameManager extends Component {
                     let dupNode = instantiate(this.totalNodes[this.DupIdx]);
                     if (original) {
                         dupNode.parent = this.draggingNode.parent;
-                        dupNode.setPosition(original.x,233);
+                        dupNode.setPosition(original.x, 253);
                         // this.draggingNode.name = "dup" + random().toString();
                         dupNode.setSiblingIndex(0)
                         dupNode.name = this.totalNodes[this.DupIdx].name;
@@ -252,11 +298,11 @@ export class GameManager extends Component {
         if (!snapped) {
             const original = this.originalPositions.get(this.draggingNode);
             if (original) {
-                this.draggingNode.setPosition(original.x,233);
+                this.draggingNode.setPosition(original.x, 233);
                 this.audiosource.playOneShot(this.audioclips[0], 0.6);
             }
-                    this.draggingNode.getComponent(PolygonCollider2D).enabled = true;
-        this.draggingNode.getComponent(RigidBody2D).enabled = true;
+            this.draggingNode.getComponent(PolygonCollider2D).enabled = true;
+            this.draggingNode.getComponent(RigidBody2D).enabled = true;
         }
 
         this.draggingNode = null;
@@ -302,7 +348,7 @@ export class GameManager extends Component {
         } else {
             window.open("https://play.google.com/store/apps/details?id=com.game.goolny.stickers&hl=en-US&gl=US", "MergeSticker");
         }
-        // this.super_html_playable.download();
+        this.super_html_playable.download();
 
     }
 
