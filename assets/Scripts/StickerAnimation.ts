@@ -7,7 +7,7 @@ export class StickerAnimation extends Component {
     frames: SpriteFrame[] = [];
 
     @property
-    frameDuration: number = 0.1; // Seconds per frame
+    frameDuration: number = 0.01; // Seconds per frame
 
     private sprite!: Sprite;
     private currentIndex: number = 0;

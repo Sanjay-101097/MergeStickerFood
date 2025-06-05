@@ -62,6 +62,8 @@ export class GameManager extends Component {
     ClrNodeCtnSize: object = { "mcd_M": v2(269, 335), "mcd_FF": v2(212, 294), "mcd_CD": v2(512, 512) }
     ClrNodeCtnSizeB: object = { "mcd_M": v2(134, 150), "mcd_FF": v2(80, 106), "mcd_CD": v2(65, 129) }
 
+    
+
      public Downnload(): void {
         this.super.download();
     }
@@ -74,7 +76,7 @@ export class GameManager extends Component {
         this.scheduleOnce(() => {
 
             this.handTween(this.totalNodes[this.handpos[this.handId][0]].position, this.totalNodes[this.handpos[this.handId][1]].position);
-        }, 1.4)
+        }, 1.8)
 
 
     }
@@ -186,7 +188,7 @@ export class GameManager extends Component {
             if (dist < 50 && this.draggingNode != target && this.draggingNode.name === target.name) {
                 this.draggingNode.setPosition(target.position);
                 if (!target.children?.length && this.SnappedNodes.indexOf(target.name) == -1) {
-                    if (target.name == "mcd_BR"||target.name == "mcd_BR_B") {
+                    if (target.name == "mcd_BR") {
                         this.handId += 1;
                     }
                     this.ParticleNode.setPosition(target.position)
@@ -228,6 +230,7 @@ export class GameManager extends Component {
 
                         }
                         this.SnappedNodes.push(target.name)
+                        this.movetoSticker(target);
 
                     } else {
                         if (this.ansCnt <= 0) {
@@ -336,6 +339,26 @@ export class GameManager extends Component {
         }
     }
 
+    movetoSticker(node:Node){
+        this.Hand.active = false;
+        this.DragText.active = false;
+        for(let i=24; i<32 ; i++){
+            if(this.totalNodes[i].name == node.name){
+                node.getComponent(PolygonCollider2D).enabled =false
+                tween(node).to(0.4,{position:this.totalNodes[i].position}).call(()=>{
+                    node.active =false;
+                    this.audiosource.playOneShot(this.audioclips[2], 0.6);
+                    this.scaleEffect();
+                    this.ansCnt += 1;
+                    this.totalNodes[i].children[0].active = true
+                }).start();
+
+                break;
+            }
+        }
+
+    }
+
     OnStartButtonClick() {
 
         this.BG.enabled = false;
@@ -363,7 +386,7 @@ export class GameManager extends Component {
 
             if (this.timer >= 22 || this.ansCnt == 3) {
                 this.dt1 += dt;
-                if (this.dt1 >= 2) {
+                if (this.dt1 >= 4) {
                     this.CTA.active = true;
                 }
 
