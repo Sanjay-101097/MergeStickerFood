@@ -201,7 +201,7 @@ export class GameManager extends Component {
                         .call(() => {
                             this.ParticleNode.getComponent(ParticleSystem2D).enabled = false;
                             if (name.length === 2) {
-                                target.setScale(1.3, 1.3, 1.3)
+                                // target.setScale(1.3, 1.3, 1.3)
 
                             }
                         })
@@ -218,17 +218,18 @@ export class GameManager extends Component {
                         target.name = name[0] + "_" + name[1];
 
                         target.getComponent(Sprite).spriteFrame = this.ColorImgs.getSpriteFrame(target.name);
-                        if (target.name == "mcd_M") {
-                            target.getComponent(UITransform).setContentSize(134, 150)
-                        }
-                        if (target.name == "mcd_FF") {
-                            target.getComponent(UITransform).setContentSize(80, 106)
+                        // if (target.name == "mcd_M") {
+                        //     target.getComponent(UITransform).setContentSize(134, 150)
+                        // }
+                        // if (target.name == "mcd_FF") {
+                        //     target.getComponent(UITransform).setContentSize(80, 106)
 
-                        }
-                        if (target.name == "mcd_CD") {
-                            target.getComponent(UITransform).setContentSize(65, 129)
+                        // }
+                        // if (target.name == "mcd_CD") {
+                        //     target.getComponent(UITransform).setContentSize(65, 129)
 
-                        }
+                        // }
+                        target.setRotationFromEuler(0,0,0)
                         this.SnappedNodes.push(target.name)
                         this.movetoSticker(target);
 
@@ -239,7 +240,7 @@ export class GameManager extends Component {
 
 
                         target.getComponent(Sprite).spriteFrame = this.BnWImgs.getSpriteFrame(target.name);
-                        target.setScale(1.3, 1.3, 1.3)
+                        // target.setScale(1.3, 1.3, 1.3)
                         target.name += "_B"
                     }
 

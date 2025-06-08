@@ -7,24 +7,50 @@
       <key>mcd_CPC.png</key>
       <dict>
         <key>frame</key>
-        <string>{{2,2},{145,136}}</string>
+        <string>{{2,2},{146,175}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
         <false/>
         <key>sourceColorRect</key>
-        <string>{{0,0},{145,136}}</string>
+        <string>{{0,0},{146,175}}</string>
         <key>sourceSize</key>
-        <string>{145,136}</string>
+        <string>{146,175}</string>
+      </dict>
+      <key>mcd_BR.png</key>
+      <dict>
+        <key>frame</key>
+        <string>{{152,2},{166,140}}</string>
+        <key>offset</key>
+        <string>{0,0}</string>
+        <key>rotated</key>
+        <true/>
+        <key>sourceColorRect</key>
+        <string>{{0,0},{166,140}}</string>
+        <key>sourceSize</key>
+        <string>{166,140}</string>
+      </dict>
+      <key>mcd_FF.png</key>
+      <dict>
+        <key>frame</key>
+        <string>{{2,181},{126,166}}</string>
+        <key>offset</key>
+        <string>{0,0}</string>
+        <key>rotated</key>
+        <true/>
+        <key>sourceColorRect</key>
+        <string>{{0,0},{126,166}}</string>
+        <key>sourceSize</key>
+        <string>{126,166}</string>
       </dict>
       <key>mcd_M.png</key>
       <dict>
         <key>frame</key>
-        <string>{{151,2},{134,150}}</string>
+        <string>{{172,172},{134,150}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
-        <false/>
+        <true/>
         <key>sourceColorRect</key>
         <string>{{0,0},{134,150}}</string>
         <key>sourceSize</key>
@@ -33,80 +59,54 @@
       <key>mcd_CD.png</key>
       <dict>
         <key>frame</key>
-        <string>{{2,142},{96,119}}</string>
+        <string>{{296,2},{94,164}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
         <false/>
         <key>sourceColorRect</key>
-        <string>{{0,0},{96,119}}</string>
+        <string>{{0,0},{94,164}}</string>
         <key>sourceSize</key>
-        <string>{96,119}</string>
-      </dict>
-      <key>mcd_BR.png</key>
-      <dict>
-        <key>frame</key>
-        <string>{{102,156},{107,88}}</string>
-        <key>offset</key>
-        <string>{0,0}</string>
-        <key>rotated</key>
-        <false/>
-        <key>sourceColorRect</key>
-        <string>{{0,0},{107,88}}</string>
-        <key>sourceSize</key>
-        <string>{107,88}</string>
+        <string>{94,164}</string>
       </dict>
       <key>mcd_ICE.png</key>
       <dict>
         <key>frame</key>
-        <string>{{213,156},{62,116}}</string>
+        <string>{{172,310},{87,155}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
-        <false/>
+        <true/>
         <key>sourceColorRect</key>
-        <string>{{0,0},{62,116}}</string>
+        <string>{{0,0},{87,155}}</string>
         <key>sourceSize</key>
-        <string>{62,116}</string>
-      </dict>
-      <key>mcd_FF.png</key>
-      <dict>
-        <key>frame</key>
-        <string>{{2,265},{80,101}}</string>
-        <key>offset</key>
-        <string>{0,0}</string>
-        <key>rotated</key>
-        <false/>
-        <key>sourceColorRect</key>
-        <string>{{0,0},{80,101}}</string>
-        <key>sourceSize</key>
-        <string>{80,101}</string>
-      </dict>
-      <key>mcd_PIE.png</key>
-      <dict>
-        <key>frame</key>
-        <string>{{86,265},{76,98}}</string>
-        <key>offset</key>
-        <string>{0,0}</string>
-        <key>rotated</key>
-        <false/>
-        <key>sourceColorRect</key>
-        <string>{{0,0},{76,98}}</string>
-        <key>sourceSize</key>
-        <string>{76,98}</string>
+        <string>{87,155}</string>
       </dict>
       <key>mcd_CR.png</key>
       <dict>
         <key>frame</key>
-        <string>{{166,276},{102,56}}</string>
+        <string>{{2,311},{152,85}}</string>
         <key>offset</key>
         <string>{0,0}</string>
         <key>rotated</key>
         <false/>
         <key>sourceColorRect</key>
-        <string>{{0,0},{102,56}}</string>
+        <string>{{0,0},{152,85}}</string>
         <key>sourceSize</key>
-        <string>{102,56}</string>
+        <string>{152,85}</string>
+      </dict>
+      <key>mcd_PIE.png</key>
+      <dict>
+        <key>frame</key>
+        <string>{{326,170},{126,86}}</string>
+        <key>offset</key>
+        <string>{0,0}</string>
+        <key>rotated</key>
+        <true/>
+        <key>sourceColorRect</key>
+        <string>{{0,0},{126,86}}</string>
+        <key>sourceSize</key>
+        <string>{126,86}</string>
       </dict>
     </dict>
     <key>metadata</key>
@@ -120,7 +120,7 @@
       <key>realTextureFileName</key>
       <string>BlackStickers.png</string>
       <key>size</key>
-      <string>{287,368}</string>
+      <string>{414,399}</string>
       <key>textureFileName</key>
       <string>BlackStickers</string>
     </dict>
